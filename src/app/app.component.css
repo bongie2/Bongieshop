@@ -1,0 +1,7 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-grid-tile {
+    background: pink;
+  }
+  .app{
+      color:maroon;
+  }

@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 class="app">
+    Welcome to {{title }}!
+  </h1>
+  <img width="300"  src="assets\mylogo.png">
+</div>
+
+<mat-card>
+    <mat-card-title>Product Details</mat-card-title>
+     <mat-card-actions>
+    <mat-grid-list cols="3" rowHeight="3:1" >
+<mat-grid-tile *ngFor="let product of products">
+
+    <img src = "..\assets\{{product.productPicture}}" width="100px" height="100px"/>
+    <p>{{product.productDescription}}</p>
+    <h2>R{{product.productPrice}}</h2>
+    <button mat-raised-button color="primary" (click)="New(product)">Add-To-Cart</button>
+</mat-grid-tile>
+</mat-grid-list>
+</mat-card-actions>
+</mat-card>
+<mat-card-title>Shopping Cart</mat-card-title>
+
+        <mat-card *ngFor = "let new_items of NewProd">
+         
+                <mat-card-content>
+                    <mat-grid-list cols="2" rowHeight="2:1" >
+                    <mat-grid-tile>
+                  <img src = "assets/{{new_items.productPicture}}" alt = "Pic"width="80px" height="80px"/>
+              
+                      {{new_items.productDescription}}<br>
+                      R{{new_items.productPrice}}
+                      <button mat-raised-button color="primary" (click)="Delete(new_items)">Delete</button>
+                </mat-grid-tile>
+                </mat-grid-list>
+                
+                </mat-card-content> 
+                   
+        </mat-card>
+        <h5>TotalPrice:{{totalAmount}}<br>
+        Quantity:{{totalQ}}</h5>
+<router-outlet></router-outlet>
